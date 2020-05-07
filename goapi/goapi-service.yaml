@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: goapi-service
+  labels:
+    app: goapi
+spec:
+  type: NodePort
+  ports:
+   - targetPort: 3019 
+     port: 80
+     nodePort: 30014
+  selector:
+   app: goapi

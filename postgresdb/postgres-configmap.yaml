@@ -1,0 +1,17 @@
+# The version of the Kubernetes API.
+apiVersion: v1
+# The kind K8s cluster accepts.ConfigMap is used to configure a pod.          
+kind: ConfigMap
+# Name and labels to identify the configurations.
+metadata:
+  name: postgres-config
+  labels:
+    app: postgres
+# Environment variables for the postgres database image.
+data:
+  # POSTGRES_DB - used to define a different name for the default database that is created when the image is first started.
+  POSTGRES_DB: postgresdb
+  # POSTGRES_USER - will create the specified user with superuser power.
+  POSTGRES_USER: postgresadmin
+  # POSTGRES_PASSWORD - This environment variable is required for you to use the PostgreSQL image. It must not be empty or undefined. 
+  POSTGRES_PASSWORD: admin123

@@ -1,0 +1,19 @@
+https://severalnines.com/database-blog/using-kubernetes-deploy-postgresql
+After connecting to the postgres db in dashboard
+psql -h localhost -U postgresadmin -d postgresdb
+for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done
+for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
+
+
+CREATE TABLE users(
+	id serial PRIMARY KEY,
+	username VARCHAR (50) UNIQUE NOT NULL,
+	email VARCHAR (355) UNIQUE NOT NULL,
+	created_at TIMESTAMP NOT NULL
+);
+
+
+INSERT INTO users (id, username, email, created_at) VALUES (1, 'user1', 'user1@gmail.com', current_timestamp);
+
+
+docker.io/avk19/goapi
