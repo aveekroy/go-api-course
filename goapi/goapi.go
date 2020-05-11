@@ -57,7 +57,7 @@ func getusers(w http.ResponseWriter, r *http.Request) {
 
 func queryDB(sqlStatement string) (*sql.Rows, error) {
 	var db *sql.DB
-	db, err := sql.Open("postgres", "host=10.104.133.203 port=5432 user=postgresadmin password=admin123 dbname=postgresdb sslmode=disable")
+	db, err := sql.Open("postgres", "host=10.99.97.83 port=5432 user=postgresadmin password=admin123 dbname=postgresdb sslmode=disable")
 	if err != nil {
 		panic(err)
 	}

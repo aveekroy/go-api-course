@@ -1,0 +1,5 @@
+GOOS=linux GOARCH=amd64 go build goapi.go
+docker build -t avk19/goapi:latest .
+docker push avk19/goapi:latest
+for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
+for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done
