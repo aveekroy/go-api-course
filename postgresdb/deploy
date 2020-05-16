@@ -1,0 +1,2 @@
+for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
+for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done

@@ -1,13 +1,17 @@
+### Minikube commands
+```
 minikube start --driver=virtualbox
+minikube stop
+minikube start
+minikube delete
+minikube service <service name> --url
+minikube ip
+minikube dashboard
+```
+### Postgres Commands
 
-https://severalnines.com/database-blog/using-kubernetes-deploy-postgresql\
-
-After connecting to the postgres db in dashboard
+```
 psql -h localhost -U postgresadmin -d postgresdb
-
-for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done
-for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
-
 
 CREATE TABLE users(
 	id serial PRIMARY KEY,
@@ -24,8 +28,9 @@ UPDATE users SET created_at = '2020-05-07 04:29:39.482142' where id=1;
 UPDATE users SET created_at = '2020-05-07 04:30:11.647136' where id=2;
 UPDATE users SET created_at = '2020-05-07 04:30:27.29615' where id=3;
 
+### Docker Commands
+
 Push the image to dockr hub
 docker build -t avk19/goapi:latest .
 docker push avk19/goapi:latest
-
 docker.io/avk19/goapi
