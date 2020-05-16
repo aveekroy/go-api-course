@@ -1,12 +1,31 @@
 ### Minikube commands
 ```
 minikube start --driver=virtualbox
+minikube status
 minikube stop
 minikube start
 minikube delete
 minikube service <service name> --url
 minikube ip
 minikube dashboard
+```
+### kubectl commands
+```
+kubectl cluster-info
+kubectl api-resources
+kubectl get pods
+kubectl get svc
+kubectl describe pods - describes all the pods
+kubectl describe pod <pod_name>
+kubectl apply -f <yaml file>
+kubectl delete -f <yaml file>
+kubectl logs <pod_name>
+kubectl proxy - after that open the localhost
+kubectl api-resources
+
+Resource:
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
+
 ```
 ### Postgres Commands
 
