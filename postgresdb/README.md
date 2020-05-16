@@ -29,8 +29,8 @@ UPDATE users SET created_at = '2020-05-07 04:30:11.647136' where id=2;
 UPDATE users SET created_at = '2020-05-07 04:30:27.29615' where id=3;
 ```
 ### Docker Commands
-
-Push the image to dockr hub
+```
 docker build -t avk19/goapi:latest .
 docker push avk19/goapi:latest
 docker.io/avk19/goapi
+```
