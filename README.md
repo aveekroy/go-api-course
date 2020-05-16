@@ -9,7 +9,7 @@ Repository containing all the resources for go-api-course in Udemy
 ```
 		1. Dockerfile 
 		2. build_and_deploy shell script
-		3. YAML files for deploying it to the minikube cluster
+		3. YAML files for deploying the GO API inside the minikube cluster
 		4. The go file for the API
 ```
 
@@ -18,6 +18,6 @@ Repository containing all the resources for go-api-course in Udemy
 #### Contains all the resources for the postgresdb
 
 ```
-		1. YAML files for the postgres db deployment in the minikube cluster
+		1. YAML files for deploying the postgres db inside the minikube cluster
 		2. deploy shell script
 ```
