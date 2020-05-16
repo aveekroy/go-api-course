@@ -27,7 +27,7 @@ INSERT INTO users (id, username, email, created_at) VALUES (3, 'user3', 'user3@m
 UPDATE users SET created_at = '2020-05-07 04:29:39.482142' where id=1;
 UPDATE users SET created_at = '2020-05-07 04:30:11.647136' where id=2;
 UPDATE users SET created_at = '2020-05-07 04:30:27.29615' where id=3;
-
+```
 ### Docker Commands
 
 Push the image to dockr hub
