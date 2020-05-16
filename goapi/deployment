@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+    name: goapi-deployment
+    labels:
+        app: goapi
+        type: middleware
+spec:
+    template:
+        metadata:
+            name: goapi-pod
+            labels:
+                app: goapi
+                type: middleware
+        spec:
+            containers:
+                - name: goapi-container
+                  image: reponame:latest
+    replicas: 1
+    selector:
+        matchLabels:
+            type: middleware

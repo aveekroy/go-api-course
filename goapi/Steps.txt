@@ -1,9 +1,0 @@
-Making changes to the goapi?
-
-After making changes:
-
-1. Run the build command - builts the executable and the docker image and then pushes it to docker hub.
-2. Run the below deployment files.
-for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done
-for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
-docker.io/avk19/goapi

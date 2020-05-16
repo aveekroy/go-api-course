@@ -30,12 +30,10 @@ func main() {
 
 func getusers(w http.ResponseWriter, r *http.Request) {
 
-	fmt.Println("Hi Aveek")
-
-	sqlStatement := `select * from users;`
+	sqls := `select * from users;`
 	var user User
 	var response []User
-	rows, err := queryDB(sqlStatement)
+	rows, err := queryDB(sqls)
 	fmt.Println(rows)
 	for rows.Next() {
 		err = rows.Scan(&user.ID, &user.Username, &user.Email, &user.CreatedAt)
@@ -55,9 +53,9 @@ func getusers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-func queryDB(sqlStatement string) (*sql.Rows, error) {
+func queryDB(sqls string) (*sql.Rows, error) {
 	var db *sql.DB
-	db, err := sql.Open("postgres", "host=10.99.97.83 port=5432 user=postgresadmin password=admin123 dbname=postgresdb sslmode=disable")
+	db, err := sql.Open("postgres", "host=10.105.216.254 port=5432 user=postgresadmin password=admin123 dbname=postgresdb sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
@@ -66,7 +64,7 @@ func queryDB(sqlStatement string) (*sql.Rows, error) {
 	if err != nil {
 		panic(err)
 	}
-	rows, err := db.Query(sqlStatement)
+	rows, err := db.Query(sqls)
 	return rows, err
 
 }

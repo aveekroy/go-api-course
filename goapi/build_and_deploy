@@ -1,5 +1,46 @@
+#!/bin/bash
+
+############################################################################################################
+# Script Name : build_and_deploy
+# Author : Aveek Roy
+# Usage : ./build_and_deploy <version_number>
+# Date : May 16th 2020
+# Operating System : MacOS Catalina
+# Purpose: Helps in building the image, pushing the image to docker hub repo and deploying the new image
+# in the kubernetes cluster
+############################################################################################################
+
+dhub_repo_name="avk19/goapi"
+
+############################################################################################################
+
+version="$1"
+un=`echo ${dhub_repo_name}|cut -d'/' -f1`
+rpnm=`echo ${dhub_repo_name}|cut -d'/' -f2`
+
+# Removing the goapi executable
+rm -rf goapi
+
+# Building the goapi executable
 GOOS=linux GOARCH=amd64 go build goapi.go
-docker build -t avk19/goapi:latest .
-docker push avk19/goapi:latest
-for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
-for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done
+
+# Making sure that the build has succeeded, if successful does the below things:
+# 1. Builds the docker image using the dockerfile - docker.io/avk19/goapi:$version
+# 2. Pushes the image with the version number to the docker hub repository.
+# 3. Replaces the version number for the deployment file.
+# 4. Deletes the previous version's api version from minikube.
+# 5. Deployes the new api version in minikube. 
+# 6. Removes all the images from your local OS and preserves space.
+
+if [ -e goapi ]; then
+	docker build -t ${dhub_repo_name}:${version} .
+	docker push ${dhub_repo_name}:${version}
+        sed -e "s/latest/${version}/g" -e "s/reponame/${un}\/${rpnm}/g" deployment > goapi-deployment.yaml
+	for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl delete -f $i;done
+	for i in `ls -l *.yaml|awk -F' ' '{print $9}'`;do kubectl apply -f $i;done
+	for i in `docker images|grep ${dhub_repo_name}|awk -F' ' '{print $3}'`;do docker image rm -f $i;done
+else
+	echo -e "Build has failed"
+fi
+
+############################################################################################################
