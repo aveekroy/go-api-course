@@ -25,4 +25,4 @@ Repository containing all the resources for go-api-course in Udemy
 ### Architecture Diagram
 
 ![Architecture Diagram]
-
+(https://github.com/aveekroy/go-api-course/blob/master/Architecture.png)
