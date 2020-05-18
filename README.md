@@ -24,5 +24,37 @@ Repository containing all the resources for go-api-course in Udemy
 
 ### Architecture Diagram
 
-![Architecture Diagram]
-(https://github.com/aveekroy/go-api-course/blob/master/Architecture.png)
+https://github.com/aveekroy/go-api-course/blob/master/Architecture.png
+
+### Minikube commands
+
+```
+minikube start --driver=virtualbox
+minikube status
+minikube stop
+minikube start
+minikube delete
+minikube service <service name> --url
+minikube ip
+minikube dashboard
+```
+
+### kubectl commands
+
+Resource:
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
+
+```
+kubectl cluster-info
+kubectl api-resources
+kubectl get pods
+kubectl get svc
+kubectl describe pods - describes all the pods
+kubectl describe pod <pod_name>
+kubectl apply -f <yaml file>
+kubectl delete -f <yaml file>
+kubectl logs <pod_name>
+kubectl proxy - after that open the localhost
+kubectl explain <kind name>
+```
+
