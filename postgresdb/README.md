@@ -21,7 +21,7 @@ kubectl apply -f <yaml file>
 kubectl delete -f <yaml file>
 kubectl logs <pod_name>
 kubectl proxy - after that open the localhost
-kubectl api-resources
+kubectl explain <kind name>
 
 Resource:
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands

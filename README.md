@@ -21,3 +21,8 @@ Repository containing all the resources for go-api-course in Udemy
 		1. YAML files for deploying the postgres db inside the minikube cluster
 		2. deploy shell script
 ```
+
+### Architecture Diagram
+
+![Architecture Diagram]
+
