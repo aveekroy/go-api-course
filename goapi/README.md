@@ -1,8 +1,7 @@
 ### goapi resources
 
 ```
-    1. build_and_deploy shell script - It can help you in building images, pushing the images to docker hub, 
-                                       deploying the goapi to the minikube cluster, clearing up the images in your local MacOS.
+    1. build_and_deploy shell script - helps in automating most of your build and deploy activities.
     2. deployment - file used in the shell script to create the go api deployment file.
     3. Dockerfile - used for building the goapi image.
     4. goapi-service.yaml - Service defination for the goapi.
